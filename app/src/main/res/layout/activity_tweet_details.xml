@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".TweetDetails">
+
+    <ImageView
+        android:id="@+id/tvProfileImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/tvProfileImage"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvScreenName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/tvProfileImage"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvProfileImage"
+        android:paddingBottom="5dp"
+        android:text="TextView"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvFavoriteClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvBody"
+        android:paddingTop="5dp"
+        android:text="Favorite "
+        android:textColor="@color/twitter_blue_fill_pressed" />
+
+    <TextView
+        android:id="@+id/tvRetweetClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvFavoriteClick"
+        android:layout_toEndOf="@+id/tvNumFavorite"
+        android:paddingTop="5dp"
+        android:text=" Retweet "
+        android:textColor="@color/twitter_blue_fill_pressed" />
+
+    <TextView
+        android:id="@+id/tvNumFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvUserName"
+        android:layout_alignTop="@+id/tvFavoriteClick"
+        android:paddingTop="5dp"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/tvNumRetweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvFavoriteClick"
+        android:layout_toEndOf="@+id/tvRetweetClick"
+        android:paddingTop="5dp"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvBody"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>
