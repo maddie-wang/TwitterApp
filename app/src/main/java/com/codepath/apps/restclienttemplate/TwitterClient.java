@@ -19,13 +19,16 @@ import com.loopj.android.http.RequestParams;
  * Add methods for each relevant endpoint in the API.
  * 
  * NOTE: You may want to rename this object based on the service i.e TwitterClient or FlickrClient
- * 
+ * ubj1LpvVJ535L3JoO2r9hSGop
+ * HViin6SeRn0HunR5nqEQJw5igsVTy9yB0vJmuyor6Ov9daPozi
  */
 public class TwitterClient extends OAuthBaseClient {
 	public static final BaseApi REST_API_INSTANCE = TwitterApi.instance(); // Change this
 	public static final String REST_URL = "https://api.twitter.com/1.1"; // Change this, base API URL
 	public static final String REST_CONSUMER_KEY = "ubj1LpvVJ535L3JoO2r9hSGop";       // Change this
 	public static final String REST_CONSUMER_SECRET = "HViin6SeRn0HunR5nqEQJw5igsVTy9yB0vJmuyor6Ov9daPozi"; // Change this
+//    public static final String REST_CONSUMER_KEY = "XI1Xg7qkarVXRriIgbt3ww8qX";       // Change this
+//    public static final String REST_CONSUMER_SECRET = "erDRJO1suPcBcYyNgduaZYk5ssqODJABQj8npgWmj8a12nYTtg"; // Change this
 
 	// Landing page to indicate the OAuth flow worked in case Chrome for Android 25+ blocks navigation back to the app.
 	public static final String FALLBACK_URL = "https://codepath.github.io/android-rest-client-template/success.html";
@@ -57,6 +60,33 @@ public class TwitterClient extends OAuthBaseClient {
 		// Can specify query string params directly or through RequestParams.
 		RequestParams params = new RequestParams();
 		params.put("status", message);
+		client.post(apiUrl, params, handler);
+	}
+
+	public void sendFavorite(long id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("favorites/create.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("id", id);
+		client.post(apiUrl, params, handler);
+	}
+	public void sendUnfavorite(long id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("favorites/destroy.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("id", id);
+		client.post(apiUrl, params, handler);
+	}
+	public void sendRetweet(long id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/retweet/" + id + ".json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		client.post(apiUrl, params, handler);
+	}
+	public void sendUnretweet(long id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/unretweet/" + id + ".json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
 		client.post(apiUrl, params, handler);
 	}
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

@@ -18,6 +18,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
@@ -75,7 +77,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     }
 
     // crreate viewholder class
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView ivProfileImage;
         public TextView tvUsername;
         public TextView tvBody;
@@ -106,8 +108,19 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                     }
                 }
             });
-
-    }
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition(); // item pos
+            if (position != RecyclerView.NO_POSITION) { // if position is valid
+                Tweet tweet = mTweets.get(position);
+                Intent intent = new Intent(context, TweetDetails.class); // makes intent
+                intent.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
+                // ^^ serializes movie using parceler. it uses short name as key, movie as value
+                context.startActivity(intent); // start activity
+            }
+        }
     }
 //
 //    public void onReply(MenuItem mi) {

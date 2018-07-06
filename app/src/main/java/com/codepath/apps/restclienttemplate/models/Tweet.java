@@ -4,17 +4,21 @@ import android.text.format.DateUtils;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.text.ParseException;
 import java.util.Locale;
 
 // to store info about our tweets!
+@Parcel
 public class Tweet {
     public String body;
     public long uid; // database ID for tweet
     public User user;
     public String createdAt;
-
+    public boolean favorited;
+    public int retweet_count;
+    public boolean retweeted;
     // deserialize JSON.
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -24,6 +28,10 @@ public class Tweet {
         tweet.uid = jsonObject.getLong("id");
         tweet.createdAt = getRelativeTimeAgo(jsonObject.getString("created_at"));
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+        tweet.favorited = jsonObject.getBoolean("favorited");
+        tweet.retweeted = jsonObject.getBoolean("retweeted");
+        tweet.retweet_count = jsonObject.getInt("retweet_count");
+
         return tweet;
     }
 

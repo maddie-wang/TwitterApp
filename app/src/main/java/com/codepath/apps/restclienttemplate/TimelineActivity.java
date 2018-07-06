@@ -82,6 +82,13 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchTimelineAsync(0);
+    }
+
+
     // for refreshing
     public void fetchTimelineAsync(int page) {
         // Send the network request to fetch the updated data
