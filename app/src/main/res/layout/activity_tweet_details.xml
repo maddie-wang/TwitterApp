@@ -46,41 +46,21 @@
         android:textColor="@android:color/black" />
 
     <TextView
-        android:id="@+id/tvFavoriteClick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tvBody"
-        android:paddingTop="5dp"
-        android:text="Favorite "
-        android:textColor="@color/twitter_blue_fill_pressed" />
-
-    <TextView
-        android:id="@+id/tvRetweetClick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tvFavoriteClick"
-        android:layout_toEndOf="@+id/tvNumFavorite"
-        android:paddingTop="5dp"
-        android:text=" Retweet "
-        android:textColor="@color/twitter_blue_fill_pressed" />
-
-    <TextView
         android:id="@+id/tvNumFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tvUserName"
-        android:layout_alignTop="@+id/tvFavoriteClick"
-        android:paddingTop="5dp"
+        android:layout_alignBottom="@+id/tvHeart"
+        android:layout_toEndOf="@+id/tvHeart"
+        android:padding="5dp"
         android:text="0" />
 
     <TextView
         android:id="@+id/tvNumRetweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/tvFavoriteClick"
-        android:layout_toEndOf="@+id/tvRetweetClick"
-        android:paddingTop="5dp"
+        android:layout_alignTop="@+id/tvNumFavorite"
+        android:layout_toEndOf="@+id/tvRetweet"
+        android:padding="5dp"
         android:text="0" />
 
     <TextView
@@ -96,6 +76,27 @@
         android:layout_height="1dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tvBody"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:padding="5dp" />
+
+    <ImageButton
+        android:id="@+id/tvHeart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvBody"
+        android:background="@android:color/transparent"
+        android:tint="@color/medium_gray"
+        app:srcCompat="@drawable/ic_vector_heart_stroke" />
+
+    <ImageButton
+        android:id="@+id/tvRetweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvNumFavorite"
+        android:layout_toEndOf="@+id/tvNumFavorite"
+        android:background="@android:color/transparent"
+        android:tint="@color/medium_gray"
+        app:srcCompat="@drawable/ic_vector_retweet_stroke" />
 
 </RelativeLayout>
